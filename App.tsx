@@ -9,6 +9,7 @@ import { StatusBar } from 'expo-status-bar';
 import { PlaylistProvider } from './src/context/PlaylistContext';
 import SplashScreen from './src/screens/SplashScreen';
 import SetupScreen from './src/screens/SetupScreen';
+import LoadingScreen from './src/screens/LoadingScreen';
 import MainTabNavigator from './src/screens/MainTabNavigator';
 import PlayerScreen from './src/screens/PlayerScreen';
 
@@ -17,6 +18,7 @@ LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']
 export type RootStackParamList = {
   Splash: undefined;
   Setup: undefined;
+  Loading: undefined;
   Main: undefined;
   Player: {
     url: string;
@@ -44,20 +46,25 @@ export default function App() {
               screenOptions={{
                 headerShown: false,
                 animation: 'fade',
-                gestureEnabled: true,        // swipe back em todas as telas
+                gestureEnabled: true,
                 gestureDirection: 'horizontal',
               }}
             >
               <Stack.Screen
                 name="Splash"
                 component={SplashScreen}
-                options={{ gestureEnabled: false }} // splash não tem swipe back
+                options={{ gestureEnabled: false }}
               />
               <Stack.Screen name="Setup" component={SetupScreen} />
               <Stack.Screen
+                name="Loading"
+                component={LoadingScreen}
+                options={{ gestureEnabled: false }}
+              />
+              <Stack.Screen
                 name="Main"
                 component={MainTabNavigator}
-                options={{ gestureEnabled: false }} // raiz do app não tem swipe back
+                options={{ gestureEnabled: false }}
               />
               <Stack.Screen
                 name="Player"

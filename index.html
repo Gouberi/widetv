@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WideTV — Seu player IPTV pessoal">
   <title>WideTV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -153,7 +154,7 @@
       <span class="sidebar-brand">WideTV</span>
     </div>
 
-    <nav class="sidebar-nav">
+    <nav class="sidebar-nav" role="navigation" aria-label="Menu principal">
       <a class="nav-item active" data-view="home" href="#">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         <span>Início</span>
@@ -170,6 +171,10 @@
       <a class="nav-item" data-view="series" href="#">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         <span>Séries</span>
+      </a>
+      <a class="nav-item" data-view="categories" href="#">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Categorias</span>
       </a>
       <a class="nav-item" data-view="continue" href="#">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -191,13 +196,16 @@
 
     <!-- TOP BAR -->
     <div class="top-bar">
-      <button id="sidebar-toggle" class="topbar-btn">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <button id="sidebar-toggle" class="topbar-btn" aria-label="Alternar menu lateral">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <div class="search-wrapper">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <label for="global-search" class="sr-only">Buscar</label>
         <input type="text" id="global-search" placeholder="Buscar filmes, séries, canais...">
-        <button class="search-clear hidden" id="search-clear">✕</button>
+        <button class="search-clear hidden" id="search-clear" aria-label="Limpar busca">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
       </div>
     </div>
 
@@ -211,12 +219,12 @@
           <h1 class="hero-title" id="hero-title">WideTV</h1>
           <p class="hero-desc" id="hero-desc">Bem-vindo à sua experiência de streaming personalizada</p>
           <div class="hero-actions">
-            <button class="btn-hero-play" id="hero-play-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <button class="btn-hero-play" id="hero-play-btn" aria-label="Reproduzir">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
               Assistir
             </button>
-            <button class="btn-hero-info" id="hero-info-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <button class="btn-hero-info" id="hero-info-btn" aria-label="Mais informações">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               Mais Info
             </button>
           </div>
@@ -233,9 +241,9 @@
             <button class="section-see-all" data-view="continue">Ver tudo</button>
           </div>
           <div class="cards-row-wrapper">
-            <button class="row-scroll-btn row-scroll-left" data-row="home-continue">‹</button>
+            <button class="row-scroll-btn row-scroll-left" data-row="home-continue" aria-label="Anterior">‹</button>
             <div class="cards-row" id="home-continue-row"></div>
-            <button class="row-scroll-btn row-scroll-right" data-row="home-continue">›</button>
+            <button class="row-scroll-btn row-scroll-right" data-row="home-continue" aria-label="Próximo">›</button>
           </div>
         </div>
 
@@ -248,9 +256,9 @@
             <button class="section-see-all" data-view="live">Ver tudo</button>
           </div>
           <div class="cards-row-wrapper">
-            <button class="row-scroll-btn row-scroll-left" data-row="home-live">‹</button>
+            <button class="row-scroll-btn row-scroll-left" data-row="home-live" aria-label="Anterior">‹</button>
             <div class="cards-row" id="home-live-row"></div>
-            <button class="row-scroll-btn row-scroll-right" data-row="home-live">›</button>
+            <button class="row-scroll-btn row-scroll-right" data-row="home-live" aria-label="Próximo">›</button>
           </div>
         </div>
 
@@ -263,9 +271,9 @@
             <button class="section-see-all" data-view="movies">Ver tudo</button>
           </div>
           <div class="cards-row-wrapper">
-            <button class="row-scroll-btn row-scroll-left" data-row="home-movies">‹</button>
+            <button class="row-scroll-btn row-scroll-left" data-row="home-movies" aria-label="Anterior">‹</button>
             <div class="cards-row" id="home-movies-row"></div>
-            <button class="row-scroll-btn row-scroll-right" data-row="home-movies">›</button>
+            <button class="row-scroll-btn row-scroll-right" data-row="home-movies" aria-label="Próximo">›</button>
           </div>
         </div>
 
@@ -278,9 +286,9 @@
             <button class="section-see-all" data-view="series">Ver tudo</button>
           </div>
           <div class="cards-row-wrapper">
-            <button class="row-scroll-btn row-scroll-left" data-row="home-series">‹</button>
+            <button class="row-scroll-btn row-scroll-left" data-row="home-series" aria-label="Anterior">‹</button>
             <div class="cards-row" id="home-series-row"></div>
-            <button class="row-scroll-btn row-scroll-right" data-row="home-series">›</button>
+            <button class="row-scroll-btn row-scroll-right" data-row="home-series" aria-label="Próximo">›</button>
           </div>
         </div>
       </div>
@@ -369,8 +377,8 @@
     <div id="view-category-detail" class="view">
       <div class="view-header">
         <div style="display:flex;align-items:center;gap:14px">
-          <button class="btn-back" id="cat-detail-back">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <button class="btn-back" id="cat-detail-back" aria-label="Voltar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
             <h1 class="view-title" id="cat-detail-title">Categoria</h1>
@@ -425,12 +433,12 @@
 <div id="series-modal" class="modal hidden">
   <div class="modal-backdrop" id="modal-backdrop"></div>
   <div class="modal-panel">
-    <button class="modal-close-btn" id="modal-close">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <button class="modal-close-btn" id="modal-close" aria-label="Fechar">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <div class="modal-hero">
       <div class="modal-poster-wrap">
-        <img class="modal-poster" id="modal-poster" src="" alt="" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22280%22 viewBox=%220 0 200 280%22><rect fill=%22%230f1629%22 width=%22200%22 height=%22280%22/><text x=%22100%22 y=%22140%22 text-anchor=%22middle%22 font-family=%22Inter%22 fill=%22%238fa3c0%22 font-size=%2240%22>🎬</text></svg>'">
+        <img class="modal-poster" id="modal-poster" src="" alt="" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22280%22><rect fill=%22%230f1629%22 width=%22200%22 height=%22280%22/><text x=%22100%22 y=%22144%22 text-anchor=%22middle%22 font-family=%22Inter%22 fill=%22%236d87a8%22 font-size=%2213%22 font-weight=%22600%22>SÉRIE</text></svg>'">
       </div>
       <div class="modal-info">
         <h2 class="modal-title" id="modal-title"></h2>
@@ -454,8 +462,8 @@
         <h2>Configurar Categorias</h2>
         <p>Diga ao WideTV o que cada grupo da sua lista representa</p>
       </div>
-      <button class="modal-close-btn" id="cat-config-close">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <button class="modal-close-btn" id="cat-config-close" aria-label="Fechar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
     <div class="cat-config-legend">
@@ -475,6 +483,7 @@
     </div>
     <div class="cat-config-search">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <label for="cat-config-search-input" class="sr-only">Filtrar grupos</label>
       <input type="text" id="cat-config-search-input" placeholder="Filtrar grupos...">
     </div>
     <div class="cat-config-list" id="cat-config-list"></div>
@@ -495,8 +504,8 @@
   <div class="player-ui" id="player-ui">
     <!-- Top -->
     <div class="player-top">
-      <button class="player-back-btn" id="player-back-btn">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      <button class="player-back-btn" id="player-back-btn" aria-label="Voltar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
       </button>
       <div class="player-title-wrap">
         <div class="player-title" id="player-title"></div>
@@ -547,29 +556,29 @@
       </div>
       <div class="controls-row">
         <div class="controls-left">
-          <button class="ctrl-btn" id="pp-btn" title="Play/Pause (Espaço)">
+          <button class="ctrl-btn" id="pp-btn" title="Play/Pause (Espaço)" aria-label="Play/Pause">
             <svg class="icon-play" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             <svg class="icon-pause hidden" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
           </button>
-          <button class="ctrl-btn" id="rewind-btn" title="Retroceder 10s">
+          <button class="ctrl-btn" id="rewind-btn" title="Retroceder 10s" aria-label="Retroceder 10 segundos">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.1"/><text x="12" y="14" text-anchor="middle" font-size="6" fill="currentColor" stroke="none">10</text></svg>
           </button>
-          <button class="ctrl-btn" id="forward-btn" title="Avançar 10s">
+          <button class="ctrl-btn" id="forward-btn" title="Avançar 10s" aria-label="Avançar 10 segundos">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.49-3.1"/><text x="12" y="14" text-anchor="middle" font-size="6" fill="currentColor" stroke="none">10</text></svg>
           </button>
           <div class="volume-wrap">
-            <button class="ctrl-btn" id="vol-btn" title="Mute">
+            <button class="ctrl-btn" id="vol-btn" title="Mute" aria-label="Silenciar">
               <svg class="icon-vol" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
               <svg class="icon-mute hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
             </button>
-            <input type="range" class="vol-slider" id="vol-slider" min="0" max="1" step="0.02" value="1">
+            <input type="range" class="vol-slider" id="vol-slider" min="0" max="1" step="0.02" value="1" aria-label="Volume">
           </div>
         </div>
         <div class="controls-right">
-          <button class="ctrl-btn" id="pip-btn" title="Picture-in-Picture">
+          <button class="ctrl-btn" id="pip-btn" title="Picture-in-Picture" aria-label="Picture in Picture">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><rect x="13" y="10" width="8" height="6" rx="1" ry="1"/></svg>
           </button>
-          <button class="ctrl-btn" id="fs-btn" title="Fullscreen (F)">
+          <button class="ctrl-btn" id="fs-btn" title="Fullscreen (F)" aria-label="Tela cheia">
             <svg class="icon-expand" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
             <svg class="icon-compress hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/></svg>
           </button>
@@ -580,7 +589,7 @@
 </div>
 
 <!-- ======= TOAST CONTAINER ======= -->
-<div id="toast-container"></div>
+<div id="toast-container" aria-live="polite" aria-atomic="true"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
 <script src="js/storage.js"></script>
